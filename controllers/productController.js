@@ -3,7 +3,9 @@ const categories =['Technology','Clothing','Tools'];
 
 module.exports.renderProfile = async function(req,res){
     const product = await Product.findByPk(
-        req.params.id
+        req.params.id, {
+            include:'reviews'
+        }
     );
     res.render('products/profile', {product});
 };
@@ -54,7 +56,7 @@ module.exports.addProduct = async function(req, res){
 module.exports.deleteProduct = async function(req, res ){
     await Product.destroy({
         where: {
-            id: req.prams.id
+            id: req.params.id
         }
     });
     res.redirect('/products')
