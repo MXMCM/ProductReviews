@@ -4,7 +4,7 @@ const productController = require('../controllers/productController.js');
 const reviewController = require('../controllers/reviewController.js');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('/products');
+  res.redirect('/products');
 });
 router.get('/products/delete/:id', productController.deleteProduct);
 router.get('/products', productController.viewProducts);

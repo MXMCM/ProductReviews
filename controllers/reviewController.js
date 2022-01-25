@@ -39,11 +39,11 @@ module.exports.updateReview = async function (req, res) {
             description: req.body.description
         }, {
             where: {
-                id:req.params.id
+                id: req.params.id
             }
         }
     );
-    res.redirect(`/products/profile/${review.product_id}`);
+    res.redirect(`/products/profile/${review.product-id}`);
 };
 module.exports.deleteReview = async function( req,res){
     const review = await Review.findByPk(req.params.id);
